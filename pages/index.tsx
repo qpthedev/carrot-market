@@ -33,7 +33,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="bg-white overflow-hidden rounded-2xl shadow-xl">
+      <div className="bg-white overflow-hidden rounded-2xl shadow-xl group">
         <div className="bg-blue-500 p-6 pb-14">
           <span className="text-white text-2xl">Profile</span>
         </div>
@@ -45,7 +45,7 @@ const Home: NextPage = () => {
               <span className="font-medium">340</span>
             </div>
 
-            <div className="h-24 w-24 bg-red-400 rounded-full" />
+            <div className="h-24 w-24 bg-red-400 rounded-full group-hover:bg-yellow-300 transition-colors" />
 
             <div className="flex flex-col items-center ">
               <span className="text-sm text-gray-500">Spent</span>
@@ -101,7 +101,27 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="bg-white p-10 rounded-2xl shadow-xl"></div>
+      <div className="bg-white p-10 rounded-2xl shadow-xl">
+        <form className="flex flex-col space-y-4 bg-blue-400 p-10 focus-within:bg-blue-100">
+          <input
+            type="text"
+            required
+            placeholder="username"
+            className="p-2 required:border-2 border-red-500"
+          />
+          <input
+            type="password"
+            required
+            placeholder="password"
+            className="p-2 required:border-2 border-red-500 placeholder-shown:bg-yellow-200 placeholder-shown:border-blue-500"
+          />
+          <input
+            type="submit"
+            value="Login"
+            className="bg-white rounded-md p-2"
+          />
+        </form>
+      </div>
     </div>
   );
 };
