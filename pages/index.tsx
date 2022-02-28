@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-slate-400 py-20 px-20 grid gap-10 min-h-screen">
-      <div className="bg-white sm:bg-red-400 md:bg-teal-400 lg:bg-blue-400 xl:bg-green-400 2xl:bg-purple-400 p-6 rounded-3xl shadow-xl">
+    <div className="bg-slate-400 py-20 px-20  grid gap-10 min-h-screen lg:grid-cols-2 xl:grid-cols-3 xl:place-content-center">
+      <div className="bg-white flex flex-col justify-between p-6 rounded-3xl shadow-xl">
         <span className="font-semibold text-3xl">Select Item</span>
         <ul>
           {[1, 2, 3, 4].map((i) => (
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
       </div>
 
       <div className="bg-white overflow-hidden rounded-2xl shadow-xl group">
-        <div className="bg-blue-500 p-6 pb-14">
+        <div className="portrait:bg-blue-500 landscape:bg-teal-500 p-6 pb-14 xl:pb-56">
           <span className="text-white text-2xl">Profile</span>
         </div>
 
@@ -60,7 +60,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="bg-white p-10 rounded-2xl shadow-xl">
+      <div className="bg-white p-10 rounded-2xl shadow-xl lg:col-span-2 xl:col-span-1">
         <div className="flex mb-5 justify-between items-center ">
           <span>⬅️</span>
           <div className="space-x-2">
@@ -99,28 +99,6 @@ const Home: NextPage = () => {
             </button>
           </div>
         </div>
-      </div>
-
-      <div className="bg-white p-10 rounded-2xl shadow-xl">
-        <form className="flex flex-col space-y-4 bg-blue-400 p-10 focus-within:bg-blue-100">
-          <input
-            type="text"
-            required
-            placeholder="username"
-            className="p-2 required:border-2 border-red-500"
-          />
-          <input
-            type="password"
-            required
-            placeholder="password"
-            className="p-2 required:border-2 border-red-500 placeholder-shown:bg-yellow-200 placeholder-shown:border-blue-500"
-          />
-          <input
-            type="submit"
-            value="Login"
-            className="bg-white rounded-md p-2"
-          />
-        </form>
       </div>
     </div>
   );
