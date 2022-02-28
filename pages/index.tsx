@@ -122,6 +122,29 @@ const Home: NextPage = () => {
           />
         </form>
       </div>
+
+      <details className="select-none open:text-white open:bg-yellow-300">
+        <summary className="cursor-pointer">Choose an item</summary>
+        <span>Item 1</span>
+      </details>
+
+      <ul className="list-decimal marker:text-teal-300">
+        <li>Hello</li>
+        <li>Hello</li>
+        <li>Hello</li>
+        <li>Hello</li>
+      </ul>
+
+      <input
+        type="file"
+        className="file:border-0 file:rounded-md file:bg-purple-400 file:p-2 file:transition-colors file:cursor-pointer file:hover:text-purple-400 file:hover:bg-white file:hover:border-purple-400 file:hover:border-2"
+      />
+
+      <p className="first-letter:hover:text-5xl first-letter:hover:text-teal-400">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi esse
+        obcaecati animi unde impedit maxime velit placeat porro eos, aperiam
+        libero, quas nesciunt magnam quibusdam, fugiat cum eius ex quos!
+      </p>
     </div>
   );
 };
