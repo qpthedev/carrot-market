@@ -20,7 +20,7 @@ const Upload: NextPage = () => {
             />
           </svg>
 
-          <input className="hidden" type="file" />
+          <input className="hidden" type="file" accept="image/*" />
         </label>
       </div>
 
