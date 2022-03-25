@@ -7,15 +7,20 @@ interface LoginForm {
 }
 
 export default function Forms() {
-  const { register, handleSubmit } = useForm<LoginForm>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginForm>({
     defaultValues: {},
+    mode: "onChange",
   });
 
   const onValid = (data: LoginForm) => {};
 
-  const onInvalid = (errors: FieldErrors) => {
-    console.log(errors);
-  };
+  const onInvalid = (errors: FieldErrors) => {};
+
+  console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onValid, onInvalid)}>
@@ -34,10 +39,16 @@ export default function Forms() {
       <input
         {...register("email", {
           required: "Email is required",
+          validate: {
+            notKakao: (value) =>
+              !value.includes("@kakao.com") || "Kakao login not allowed",
+          },
         })}
         type="email"
         placeholder="Email"
+        className={`${Boolean(errors.email?.message) ? "border-red-500" : ""}`}
       />
+      {errors.email?.message}
 
       <input
         {...register("password", {
