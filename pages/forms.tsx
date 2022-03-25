@@ -1,35 +1,31 @@
-import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function Forms() {
-  const [username, setUsername] = useState("");
-  const [formErrors, setFormErrors] = useState("");
-
-  const onUsernameChange = (event: React.SyntheticEvent<HTMLInputElement>) => {
-    const {
-      currentTarget: { value },
-    } = event;
-
-    setUsername(value);
-  };
-
-  const onSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (username === "") {
-      setFormErrors("All fields are required");
-    }
-  };
+  const { register, watch } = useForm();
 
   return (
-    <form onSubmit={onSubmit}>
+    <form>
       <input
-        value={username}
-        onChange={onUsernameChange}
+        {...register("username", {
+          required: true,
+        })}
         type="text"
-        placeholder="username"
-        required
+        placeholder="Username"
       />
-
+      <input
+        {...register("email", {
+          required: true,
+        })}
+        type="email"
+        placeholder="Email"
+      />
+      <input
+        {...register("password", {
+          required: true,
+        })}
+        type="password"
+        placeholder="Password"
+      />
       <input type="submit" value="Create Account" />
     </form>
   );
