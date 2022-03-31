@@ -4,6 +4,7 @@ interface LoginForm {
   username: string;
   password: string;
   email: string;
+  errors?: string;
 }
 
 export default function Forms() {
@@ -11,12 +12,16 @@ export default function Forms() {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
+    reset,
   } = useForm<LoginForm>({
     defaultValues: {},
     mode: "onChange",
   });
 
-  const onValid = (data: LoginForm) => {};
+  const onValid = (data: LoginForm) => {
+    reset();
+  };
 
   const onInvalid = (errors: FieldErrors) => {};
 
@@ -58,6 +63,7 @@ export default function Forms() {
         placeholder="Password"
       />
       <input type="submit" value="Create Account" />
+      {errors.errors?.message}
     </form>
   );
 }
