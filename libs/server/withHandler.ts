@@ -11,7 +11,7 @@ export default function withHandler(
 ) {
   return async function (req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== method) {
-      res.status(405).end();
+      return res.status(405).end();
     }
     try {
       await fn(req, res);
